@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .search-container {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .search-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #45a049;
+    }
+
+    .customer-panel {
+      border: 1px solid #000000;
+      padding: 10px;
+    }
+
+    .customer-panel p {
+      margin: 0;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Search</h1>
+
+    <div class="search-container">
+      <input id="searchInput" type="text" placeholder="Search by name">
+      <button id="searchButton">Search</button>
+    </div>
+
+    <div class="customer-panel" id="customerPanel"></div>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>

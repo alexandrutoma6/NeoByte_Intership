@@ -2,7 +2,6 @@ import pandas as pd
 from pymongo import MongoClient
 import time
 
-
 #folosesc env ca sa ascund parola
 mongo_uri = 'mongodb+srv://atoma6:parola123@nodejsapi.poinrf1.mongodb.net/?retryWrites=true&w=majority'
 database_name = 'customers'

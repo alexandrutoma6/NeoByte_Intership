@@ -10,7 +10,6 @@ function generateRandomCode() {
       if (code.length > 0) {
         //if the last digit is equal, less or grater than the new digit, it regenerate anotherone
         if (lastDigit === digit + 1 || lastDigit === digit - 1 || lastDigit === digit) {
-          digit = generateNumber();
           continue;
         }
       }
@@ -33,17 +32,21 @@ const validationCode = generateRandomCode();
 
 export const Validation = () =>{
     const [code,setCode] = useState('');
-    const [showMessage, setShowMessage] = useState(false);
+    const [showMessageCorrect, setShowMessageCorrect] = useState(false);
+    const [showMessageIncorrect, setShowMessageIncorrect] = useState(false);
 
 
     //if the code is correct shows the message
     const handleSubmit = async (e) =>{
         e.preventDefault();
         if(code === validationCode){
-            setShowMessage(true);
+            setShowMessageIncorrect(false);
+            setShowMessageCorrect(true);
             console.log('Code correct');
         }
         if(code !== validationCode){
+            setShowMessageCorrect(false);
+            setShowMessageIncorrect(true);
             console.log('Please try again, the validation code is incorrect');
         }
     }
@@ -63,11 +66,16 @@ export const Validation = () =>{
             <button onClick={handleClick} type="Generate">generate code</button>
             <button onClick={handleSubmit} type="Verify">Verify</button>
             
-            {showMessage && (
+            {showMessageCorrect && (
         <div>
           <p>Code correct!</p>
         </div>
       )}
+        {showMessageIncorrect && (
+        <div>
+          <p>Code incorrect!</p>
+        </div>
+        )}
         </form>
     )
 }

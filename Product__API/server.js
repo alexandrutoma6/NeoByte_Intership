@@ -9,8 +9,7 @@ app.use(morgan('combined'));
 const port = 8080;
 const redis = require('redis');
 const e = require('express');
-let client
-//const myCache = new NodeCache();
+let client;
 
 //CONNECT TO REDIS SERVER
 (async () => {

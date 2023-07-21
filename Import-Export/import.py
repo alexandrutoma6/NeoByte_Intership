@@ -1,11 +1,15 @@
 import pandas as pd
 from pymongo import MongoClient
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #If the name of collection not matching, creates automatically a new one!!!
-mongo_uri = 'mongodb+srv://atoma6:parola123@nodejsapi.poinrf1.mongodb.net/?retryWrites=true&w=majority'  
-db_name = 'customers'  
-collection_name = 'customers1'
+mongo_uri = os.getenv("MONGO_URI")
+db_name = os.getenv("DB_NAME")
+collection_name = os.getenv("COLLECTION_NAME")
 csv_file_path = "./customers_customers-1000.csv"
 
 start = time.time()

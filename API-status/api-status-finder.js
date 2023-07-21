@@ -1,5 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
+require('dotenv').config();
+
 
 //for a more pleasant display of the timestamp
 function formatTimestamp(date) {
@@ -58,7 +60,7 @@ function logToFile(logMessage) {
     });
   }
 
-const apiUrl = 'http://localhost:8080/products'; 
+  const apiUrl = process.env.API_URL;
 
 isApiRunning(apiUrl)
   .then((result) => {
@@ -73,5 +75,5 @@ isApiRunning(apiUrl)
   })
   .catch((error) => {
     console.error('Error:', error.message);
-    //log the error
+    logToFile('Error: ', error.message);
   });

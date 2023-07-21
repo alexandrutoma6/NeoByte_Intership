@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import axios from "axios";
+require('dotenv').config();
 export const Login = (props) =>{
     const [email,setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -7,8 +7,8 @@ export const Login = (props) =>{
 
 
     //hard-coded email and password for testing
-    const userEmail = 'a_tomaaa@yahoo.com';
-    const userPassword = '1234'
+    const userEmail = process.env.USER_EMAIL;
+    const userPassword = process.env.USER_PASSWORD;
 
     //
     //console.log(email, pass)

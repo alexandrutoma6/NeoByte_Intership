@@ -1,49 +1,48 @@
 import pandas as pd
 from pymongo import MongoClient
 import time
+import os
+from dotenv import load_dotenv
 
-#folosesc env ca sa ascund parola
-mongo_uri = 'mongodb+srv://atoma6:parola123@nodejsapi.poinrf1.mongodb.net/?retryWrites=true&w=majority'
-database_name = 'customers'
-collection_name = 'customers'
+load_dotenv()
+
+mongo_uri = os.getenv("MONGO_URI")
+db_name = os.getenv("DB_NAME")
+collection_name = os.getenv("COLLECTION_NAME")
 
 try:
     client = MongoClient(mongo_uri)
-    db = client[database_name]
+    db = client[db_name]
     collection = db[collection_name]
+    connectDb = True
 except Exception as e:
-    print("Error when connecting to db")
+    print("Error when connecting to db") 
+    connectDb = False
 
 start = time.time()
 
 # Retrieve data from the MongoDB collection
 #filtrare date, ascundere informatii private, filtrare pana la col H
-data = collection.find()
+if connectDb:
+    data = collection.find()
+    # Convert data to a pandas DataFrame
+    df = pd.DataFrame(data)
 
-##NOT WORKING
-#if data:
-#    raise Exception("No data found in the collection")
+    # Specify the CSV file path
+    csv_file_path = 'cusotmers_file_OUPUT.csv'
 
-#Caut ce este in data;
+    # Export CSV
+    #Index = False => collum index will be excluded
+    df.to_csv(csv_file_path, index=False)
 
+    client.close()
 
-# Convert data to a pandas DataFrame
-df = pd.DataFrame(data)
+    end = time.time()
 
-# Specify the CSV file path
-csv_file_path = 'cusotmers_file_OUPUT.csv'
+    print("Data exported to CSV successfully.")
 
-# Export CSV
-#Index = False => collum index will be excluded
-df.to_csv(csv_file_path, index=False)
+    print('CSV data imported to MongoDB successfully.')
+    print("Total time: ")
+    print(end - start)
 
-client.close()
-
-end = time.time()
-
-print("Data exported to CSV successfully.")
-
-print('CSV data imported to MongoDB successfully.')
-print("Total time: ")
-print(end - start)
-
+print('Stop')

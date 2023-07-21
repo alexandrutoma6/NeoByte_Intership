@@ -18,8 +18,11 @@ function formatTimestamp(date) {
 
 //return the status code
 async function isApiRunning(apiUrl) {
+  //start time for the time response
     const startTime = new Date();
   
+
+    //schimbare cu .then + .catch
     try {
       const response = await axios.get(apiUrl);
       const responseStatus = response.status;
@@ -59,16 +62,16 @@ const apiUrl = 'http://localhost:8080/products';
 
 isApiRunning(apiUrl)
   .then((result) => {
+    var message = 'API is not running or there is an error.';
+    
+    //if the API is running 
     if (result.statusCode === 200) {
-        const message = 'API is running.';
-        console.log(result.statusCode +' '+ result.responseTime+'ms '+ message);
-        logToFile(result.statusCode +' '+ result.responseTime+'ms '+ message) ;
-    } else {
-        const message = 'API is not running or there is an error.';
-        console.log(result.statusCode +' '+ result.responseTime+'ms '+ message);
-        logToFile(result.statusCode +' '+ result.responseTime+'ms '+ message);
+      message = 'API is running.';
     }
+    console.log(result.statusCode +' '+ result.responseTime+'ms '+ message);
+    logToFile(result.statusCode +' '+ result.responseTime+'ms '+ message);
   })
   .catch((error) => {
     console.error('Error:', error.message);
+    //log the error
   });

@@ -1,44 +1,76 @@
 # NEOBYTE INTERSHIP
 
+
+
+
+
+## Installation steps
+
+
+
+
+Install python from : https://www.python.org/downloads/
+
+
+
+
+```
+
+    pip install pandas pymongo
+
+    pip install python-dotenv
+
+```
+
+#### Connecting to your MongoDb:
+
+
+
+
+1. Mongo URI -> form env file
+
+2. Db name -> form env file
+
+3. Collection name -> form env file
+
+
+
+
 ## Import & Export CSV <-> DB
+
+
+
 
 
 ### IMPORT.PY
 
-1.Install python from : https://www.python.org/downloads/
 
-2.```pip install pandas pymongo```
 
-3.```pip install python-dotenv```
 
-4.```python import.py``` to run the code
+Run the code
 
-#### Connecting to your MongoDb:
+```
 
-Line 6: Mongo URI -> form env file
+python import.py
 
-Line 7: Db name -> form env file
+```
 
-Line 8: Collection name -> form env file
 
-Line 9: CSV file path
+
+
 
 ### EXPORT.PY
 
-1.Install python from : https://www.python.org/downloads/
 
-2.```pip install pandas pymongo```
 
-3.```pip install python-dotenv```
 
-4.```python export.py``` to run the code
+Run the code
 
-#### Connecting to your MongoDb:
 
-Line 6: Mongo URI -> form env file
 
-Line 7: Db name -> form env file
 
-Line 8: Collection name -> form env file
+```
 
-Line 34: Name of the CSV export
+python export.py
+
+```

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Laravel Create Product</title>
+    <link rel="stylesheet"  href="{{ asset('styleForm.css') }}">
 </head>
 <body>
     <h1>Create a product</h1>
-    <div>
+    <div id="error">
         @if($errors->any())
         <ul>
             @foreach($errors->all() as $error)

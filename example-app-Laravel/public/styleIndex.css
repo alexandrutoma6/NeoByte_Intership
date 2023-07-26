@@ -26,36 +26,33 @@ tr:nth-child(even) {
     font-family: Georgia, Arial, sans-serif;
 }
 
-#delete {
-    text-align: center;
-}
-#delete input[type="submit"] {
+/* #delete input[type="submit"] {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 3px;
-}
+} */
 #success{
     font-family: Georgia, Arial, sans-serif;
     font-style: oblique;
 }
 
 form {
-    text-align: center; /* Center the form content */
+    text-align: center; 
 }
 
-form input[type="submit"] {
+form input[type="submit"]{
     font-family: Georgia, serif;
-    font-weight: bold; /* Make the text bold */
-    font-size: 10px; /* Increase the font size */
-    color: white;
-    background-color: #8B0000; /* Dark red color for the submit button */
-    padding: 10px 20px; /* Add padding for better appearance */
+    font-weight: bold; 
+    font-size: 10px; 
+    color: rgb(255, 255, 255);
+    background-color: #13588a;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 form input[type="submit"]:hover {
-    background-color: #800000; /* Darker red on hover */
+    background-color: #000d3a; 
 }

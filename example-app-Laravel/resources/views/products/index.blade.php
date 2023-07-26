@@ -18,14 +18,14 @@
     </div>
     <div>
         <!-- Display all the products -->
-        <table border = "2">
+        <table border="2">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Description</th>
-                <th>Edit</th>
+                <th id="edit">Edit</th>
                 <th id="delete">Delete</th>
             </tr>
             @foreach($products as $product)
@@ -36,20 +36,24 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->description}}</td>
                     <td>
-                        <a href="{{route('product.edit', ['product' => $product])}}">Edit</a>
+                        <!-- Replace the anchor tag with a button tag -->
+                        <form id="edit" method="get" action="{{route('product.edit', ['product' => $product])}}">
+                            <input  type="submit" value="Edit"/>
+                        </form>
                     </td>
                     <td>
-                        <!-- Delete button to detele a product -->
-                        <form method="post" action="{{route('product.delete', ['product' => $product])}}">
+                        <!-- Delete button to delete a product -->
+                        <form id="delete" method="post" action="{{route('product.delete', ['product' => $product])}}">
                             <!-- Cross-Site Request Forgery -->
                             @csrf
                             @method('delete')
-                            <input type ="submit" value="Delete"/>
+                            <input type="submit" value="Delete"/>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
+    
 </body>
 </html>

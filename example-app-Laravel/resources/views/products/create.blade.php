@@ -23,19 +23,19 @@
         @method('post')
         <div>
             <label>Name</label>
-            <input type="text" name="name" placeholder="name" />
+            <input type="text" name="name" placeholder="name" value="{{old("name")}}"/>
         </div>
         <div>
             <label>Quantity</label>
-            <input type="text" name="qty" placeholder="quantity" />
+            <input type="text" name="qty" placeholder="quantity" value="{{old("qty")}}"/>
         </div>
         <div>
             <label>Price</label>
-            <input type="text" name="price" placeholder="price" />
+            <input type="text" name="price" placeholder="price" value="{{old("price")}}"/>
         </div>
         <div>
             <label>Description</label>
-            <input type="text" name="description" placeholder="description" />
+            <input type="text" name="description" placeholder="description" value="{{old("description")}}"/>
         </div>
         <div>
             <input type="submit" value="Save a new Product">

@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign In</title>
+</head>
+<body>
+  <h1>Sign In</h1>
+  <form id="signInForm" action="/signIn" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit">
+  </form>
+  <button onclick="switchToLogIn()">Already have an account? Log In</button>
+
+  <script>
+    function switchToLogIn() {
+      window.location.href = 'logIn.html';
+    }
+  </script>
+</body>
+</html>

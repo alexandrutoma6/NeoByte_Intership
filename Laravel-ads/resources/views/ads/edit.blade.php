@@ -1,7 +1,4 @@
-<!-- edit.blade.php -->
-
-@extends('layouts.app') {{-- Assuming you have a layout file --}}
-
+@extends('layouts.app')
 @section('content')
     <div class="container">
         <h1>Edit Ad</h1>
@@ -16,7 +13,6 @@
                 <label for="description">Description:</label>
                 <textarea name="description" id="description" class="form-control" rows="5" required>{{ $ad->description }}</textarea>
             </div>
-            <!-- Add other ad fields here if needed -->
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update Ad</button>
                 <a href="{{ route('ads.index') }}" class="btn btn-secondary">Cancel</a>

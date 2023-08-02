@@ -21,7 +21,7 @@
                     <td>{{ $ad->title }}</td>
                     <td>{{ $ad->description }}</td>
                     <td>
-                        <!-- Edit button with inline style for light green background -->
+                        <!-- Edit button -->
                         <a href="{{ route('ads.edit', $ad->id) }}" class="btn" style="background-color: #8CC63F; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Edit</a>
 
                         <!-- Delete button -->
@@ -36,6 +36,6 @@
         </tbody>
     </table>
 
-    <!-- Add Ad button -->
+    <!-- Add 
     <a href="{{ route('ads.create') }}" class="btn btn-primary">Add Ad</a>
 </div>

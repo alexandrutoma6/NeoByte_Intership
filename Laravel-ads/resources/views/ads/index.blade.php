@@ -11,7 +11,7 @@
                 <th>#</th>
                 <th>Ad Title</th>
                 <th>Ad Description</th>
-                <th>Actions</th> <!-- Add a new column for actions -->
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +36,6 @@
         </tbody>
     </table>
 
-    <!-- Add 
+    <!-- Add -->
     <a href="{{ route('ads.create') }}" class="btn btn-primary">Add Ad</a>
 </div>

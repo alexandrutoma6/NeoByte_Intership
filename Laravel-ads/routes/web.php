@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ads/{ad}/edit', [AdController::class, 'edit'])->name('ads.edit');
     Route::put('/ads/{ad}', [AdController::class, 'update'])->name('ads.update');
     Route::delete('/ads/{ad}', [AdController::class, 'destroy'])->name('ads.destroy');
+    Route::get('/ads/olx', [AdController::class, 'getOlxAds'])->name('ads.olxAds');
 });
 
 require __DIR__.'/auth.php';

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Ad;
+use Illuminate\Support\Facades\Http;
 
 class AdController extends Controller
 {
@@ -97,5 +98,18 @@ class AdController extends Controller
 
         // Redirect back to the ads.index page with a success message
         return redirect()->route('ads.index')->with('success', 'Ad deleted successfully.');
+    }
+    public function getOlxAds(Ad $ad)
+    {
+        $response = Http::get('http://localhost:8080/api/ads');
+
+        if ($response->successful()) {
+            $ads = $response->json();
+        } else {
+            $ads = [];
+        }
+
+        return view('ads.olxAds', ['ads' => $ads]);
+
     }
 }
